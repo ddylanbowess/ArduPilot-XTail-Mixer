@@ -18,7 +18,12 @@ DataFlash XTL logging of axis demands and fin commands
 4. Reboot and check ground-station messages for XTail mixer: running.
 5. Verify the direction, range, and combined motion of all fins before flight. 
 
-
+SCR_ENABLE       = 1
+SERVO1_FUNCTION  = 70    # throttle (author's setup)
+SERVO2_FUNCTION  = 94    # top right
+SERVO3_FUNCTION  = 95    # top left
+SERVO4_FUNCTION  = 96    # bottom left
+SERVO5_FUNCTION  = 97    # bottom right
 
 # Control mixing
 
@@ -41,5 +46,25 @@ I demonstrated this in flight on my aircraft aircraft with independent roll, pit
 The XTL DataFlash message logs RollD, PitchD, YawD (untrimmed controller demands) and F1–F4 (final normalized fin commands).
 
 
+# Fin Layout 
+Note I uploaded a diagram of this, but I also had ChatGPT make this layout for me, I'll be transparent on what does and doesn't have AI assistance. 
+Fin layout
+
+Viewed from behind the aircraft, facing forward:
+
+    F2 (top left)      F1 (top right)
+           \             /
+            \           /
+             \         /
+              \       /
+              /       \
+             /         \
+    F3 (bottom left)  F4 (bottom right)
 
 
+| Fin | Position     | Output | Servo Function |
+| --- | ------------ | ------ | -------------- |
+| 1   | Top Right    | S2     | Script1 (94)   |
+| 2   | Top Left     | S3     | Script2 (95)   |
+| 3   | Bottom Left  | S4     | Script3 (96)   |
+| 4   | Bottom Right | S5     | Script4 (97)   |
